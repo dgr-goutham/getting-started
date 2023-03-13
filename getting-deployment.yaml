@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name:getting-started-deployment
+   labels:
+     app: getting-started
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      app: getting-started
+  template:
+    metadata:
+      labels:
+        app: getting-started
+      spec:
+        containers:
+        - name: nodeserver
+          image: dontham208/super:latest
+          ports:
+          - containerport: 3000
